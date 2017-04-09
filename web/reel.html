@@ -32,8 +32,36 @@
         </div>
       </nav>
       <div class="container-fluid">
-        <h1 class="text-center"> GeneraBLE reel is a work in progress... </h1>
-        <pre> {{reel}} </pre>
+        <div class="row">
+          <div class="col-xs-12 col-md-3">
+            <a href="../" class="btn btn-primary"> Back </a>
+            <hr>
+            <table class="table table-hover">
+              <caption> REEL INTERFACE OPTIONS </caption>
+              <thead>
+                <tr>
+                  <th> Protocol </th>
+                  <th> Action </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="interface in reel.interfaces">
+                  <td> {{interface.protocol}} </td>
+                  <td> {{interface.selected}} </td>
+                  <td>
+                    <a class="btn btn-default btn-xs"
+                       ng-click="selectInterface(interface.protocol)"
+                       ng-hide="interface.selected"> Select </a>
+                    <a class="btn btn-default btn-xs"
+                       ng-click="removeInterface(interface.protocol)"
+                       ng-show="interface.selected"> Remove </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <p> Currently hard-coded to expect a serial reel interface (USB). </p>
+          </div>
+        </div>
       </div>
       <footer class="footer">
         <a href="https://github.com/reelyactive/generable"> GeneraBLE </a>
