@@ -32,8 +32,38 @@
         </div>
       </nav>
       <div class="container-fluid">
-        <h1 class="text-center"> GeneraBLE Hue is a work in progress... </h1>
-        <pre> {{hue}} </pre>
+        <div class="row">
+          <div class="col-xs-12 col-md-3">
+            <a href="../" class="btn btn-primary"> Back </a>
+            <hr>
+            <table class="table table-hover">
+              <caption> HUE BRIDGES DETECTED ON LOCAL NETWORK </caption>
+              <thead>
+                <tr>
+                  <th> IP Address </th>
+                  <th> Connected </th>
+                  <th> Action </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="bridge in hue.bridges">
+                  <td> {{bridge.ip}} </td>
+                  <td> {{bridge.connected}} </td>
+                  <td>
+                    <a class="btn btn-default btn-xs"
+                       ng-click="connectToBridge(bridge.ip)"
+                       ng-hide="bridge.connected"> Connect </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <p> Press the button on the Hue bridge <i>first</i>, then press the Connect button above. </p>
+          </div>
+          <div class="col-xs-12 col-md-9">
+            Status coming soon...
+            <pre> {{hue}} </pre>
+          </div>
+        </div>
       </div>
       <footer class="footer">
         <a href="https://github.com/reelyactive/generable"> GeneraBLE </a>
