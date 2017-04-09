@@ -4,6 +4,18 @@ generable
 Generative art from ambient BLE advertisement packets.  A work in progress started on #IoTDay 2017 based on our earlier work with [midiot](https://www.npmjs.com/package/midiot) and with Philips Hue.
 
 
+Prerequisites
+-------------
+
+The [midi package prerequisites](https://www.npmjs.com/package/midi#prerequisites) must be met before installation.
+
+### Raspberry Pi (and other Linux-based systems)
+
+ALSA is likely to be the only missing prerequisite, and can be installed as follows:
+
+    sudo apt-get install libasound2-dev
+
+
 Installation
 ------------
 

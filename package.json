@@ -32,7 +32,8 @@
     "barnowl": ">=0.4.23",
     "barnacles": ">=0.4.8",
     "reelib": ">=0.0.15",
-    "node-hue-api": ">=2.4.2"
+    "node-hue-api": ">=2.4.2",
+    "midi": ">=0.9.5"
   },
   "devDependencies": {},
   "bugs": {
