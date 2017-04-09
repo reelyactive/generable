@@ -3,18 +3,28 @@ angular.module('midi', [ 'ui.bootstrap' ])
   // Hue controller
   .controller('MidiCtrl', function($scope, $http, $interval) {
 
-    $scope.hue = {};
+    $scope.midi = {};
 
-    $scope.getState = function() {
+    $scope.getInterfaces = function() {
       $http.defaults.headers.common.Accept = 'application/json';
-      $http({ method: 'GET', url: '/midi' })
+      $http({ method: 'GET', url: '/midi/interfaces' })
         .then(function(response) {
-          $scope.midi = response.data;
+          $scope.midi.interfaces = response.data;
         }, function(response) {
-          $scope.midi = {};
+          $scope.midi.interfaces = {};
       });
     };
 
-    $scope.getState();
+    $scope.selectInterface = function(index) {
+      $http.defaults.headers.common.Accept = 'application/json';
+      $http({ method: 'PUT', url: '/midi/interfaces', data: { index: index } })
+        .then(function(response) {
+          $scope.midi.interfaces = response.data;
+        }, function(response) {
+          $scope.midi.interfaces = {};
+      });
+    };
+
+    $scope.getInterfaces();
 
   });

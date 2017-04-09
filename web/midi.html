@@ -32,8 +32,32 @@
         </div>
       </nav>
       <div class="container-fluid">
-        <h1 class="text-center"> GeneraBLE MIDI is a work in progress... </h1>
-        <pre> {{midi}} </pre>
+        <div class="row">
+          <div class="col-xs-12 col-md-3">
+            <a href="../" class="btn btn-primary"> Back </a>
+            <hr>
+            <table class="table table-hover">
+              <caption> AVAILABLE MIDI INTERFACES </caption>
+              <thead>
+                <tr>
+                  <th> Description </th>
+                  <th> Action </th>
+                </tr>
+              </thead>
+              <tbody ng-repeat="interface in midi.interfaces">
+                <tr>
+                  <td> {{interface.description}} </td>
+                  <td>
+                    <a class="btn btn-default btn-xs"
+                       ng-click="selectInterface(interface.index)"
+                       ng-hide="interface.selected"> Select </a>
+                    <span ng-show="interface.selected"> Selected </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
       <footer class="footer">
         <a href="https://github.com/reelyactive/generable"> GeneraBLE </a>
