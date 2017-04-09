@@ -57,11 +57,43 @@
                 </tr>
               </tbody>
             </table>
-            <p> Press the button on the Hue bridge <i>first</i>, then press the Connect button above. </p>
+            <p ng-hide="fetchingBridges"> Press the button on the Hue bridge <i>first</i>, then press the Connect button above. </p>
+            <p ng-show="fetchingBridges"> Looking for bridges, this takes a few seconds... </p>
+            <p class="text-center">
+              <a class="btn btn-default"
+                 ng-click="getBridges()"> Update Bridges </a> &nbsp;
+              <a class="btn btn-default"
+                 ng-click="getLights()"> Update Lights </a>
+            </p>
+            <div ng-repeat="light in hue.lights">
+              <table class="table table-hover">
+                <caption> {{light.name}} ({{light.modelid}}) </caption>
+                <tbody ng-show="light.state.reachable">
+                  <tr>
+                    <th> State: </th>
+                    <td> {{light.state.on ? 'ON' : 'OFF'}} </td>
+                  </tr>
+                  <tr>
+                    <th> Bri | Hue | Sat: </th>
+                    <td>
+                      {{light.state.bri}} |
+                      {{light.state.hue}} |
+                      {{light.state.sat}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <th> Effect | Alert: </th>
+                    <td> 
+                      {{light.state.effect}} |
+                      {{light.state.alert}}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
           <div class="col-xs-12 col-md-9">
-            Status coming soon...
-            <pre> {{hue}} </pre>
+            More coming soon...
           </div>
         </div>
       </div>

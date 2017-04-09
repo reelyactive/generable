@@ -4,14 +4,18 @@ angular.module('hue', [ 'ui.bootstrap' ])
   .controller('HueCtrl', function($scope, $http, $interval) {
 
     $scope.hue = {};
+    $scope.fetchingBridges = true;
 
-    $scope.getState = function() {
+    $scope.getBridges = function() {
+      $scope.fetchingBridges = true;
       $http.defaults.headers.common.Accept = 'application/json';
-      $http({ method: 'GET', url: '/hue' })
+      $http({ method: 'GET', url: '/hue/bridges' })
         .then(function(response) {
-          $scope.hue = response.data;
+          $scope.hue.bridges = response.data;
+          $scope.fetchingBridges = false;
         }, function(response) {
-          $scope.hue = {};
+          $scope.hue.bridges = {};
+          $scope.fetchingBridges = true;
       });
     };
 
@@ -25,6 +29,16 @@ angular.module('hue', [ 'ui.bootstrap' ])
       });
     };
 
-    $scope.getState();
+    $scope.getLights = function() {
+      $http.defaults.headers.common.Accept = 'application/json';
+      $http({ method: 'GET', url: '/hue/lights' })
+        .then(function(response) {
+          $scope.hue.lights = response.data;
+        }, function(response) {
+          $scope.hue.lights = {};
+      });
+    };
+
+    $scope.getBridges();
 
   });
