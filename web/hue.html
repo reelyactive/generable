@@ -7,10 +7,10 @@
     <link rel="stylesheet" href="style/reelyactive.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
-    <script type="text/javascript" src="js/generable.js"></script>
+    <script type="text/javascript" src="js/hue.js"></script>
   </head>
-  <body ng-app="generable">
-    <div>
+  <body ng-app="hue">
+    <div ng-controller="HueCtrl">
       <nav class="navbar navbar-default" role="navigation">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle"
@@ -32,14 +32,8 @@
         </div>
       </nav>
       <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-6 col-md-offset-3">
-            <h1 class="text-center"> GeneraBLE is a work in progress... </h1>
-            <p class="text-center">
-              <a href="hue"> hue </a>
-            </p>
-          </div>
-        </div>
+        <h1 class="text-center"> GeneraBLE Hue is a work in progress... </h1>
+        <pre> {{hue}} </pre>
       </div>
       <footer class="footer">
         <a href="https://github.com/reelyactive/generable"> GeneraBLE </a>

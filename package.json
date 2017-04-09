@@ -31,7 +31,8 @@
     "path": ">=0.12.7",
     "barnowl": ">=0.4.23",
     "barnacles": ">=0.4.8",
-    "reelib": ">=0.0.15"
+    "reelib": ">=0.0.15",
+    "node-hue-api": ">=2.4.2"
   },
   "devDependencies": {},
   "bugs": {
