@@ -7,10 +7,10 @@
     <link rel="stylesheet" href="style/reelyactive.css">
     <script type="text/javascript" src="js/angular.min.js"></script>
     <script type="text/javascript" src="js/ui-bootstrap-tpls.min.js"></script>
-    <script type="text/javascript" src="js/generable.js"></script>
+    <script type="text/javascript" src="js/reel.js"></script>
   </head>
-  <body ng-app="generable">
-    <div>
+  <body ng-app="reel">
+    <div ng-controller="ReelCtrl">
       <nav class="navbar navbar-default" role="navigation">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle"
@@ -32,15 +32,8 @@
         </div>
       </nav>
       <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-6 col-md-offset-3">
-            <h1 class="text-center"> GeneraBLE is a work in progress... </h1>
-            <p class="text-center">
-              <a href="hue"> hue </a> | <a href="midi"> midi </a> |
-              <a href="reel"> reel </a>
-            </p>
-          </div>
-        </div>
+        <h1 class="text-center"> GeneraBLE reel is a work in progress... </h1>
+        <pre> {{reel}} </pre>
       </div>
       <footer class="footer">
         <a href="https://github.com/reelyactive/generable"> GeneraBLE </a>
