@@ -10,7 +10,7 @@
     "BLE",
     "MIDI"
   ],
-  "version": "0.0.3",
+  "version": "0.1.0",
   "engines": {
     "node": ">=4.0.0"
   },
