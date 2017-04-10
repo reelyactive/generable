@@ -10,7 +10,7 @@
     "BLE",
     "MIDI"
   ],
-  "version": "0.1.0",
+  "version": "0.1.1",
   "engines": {
     "node": ">=4.0.0"
   },
@@ -30,6 +30,7 @@
     "cors": ">=2.8.3",
     "path": ">=0.12.7",
     "barnowl": ">=0.4.23",
+    "serialport": ">=4.0.0",
     "barnacles": ">=0.4.8",
     "reelib": ">=0.0.15",
     "node-hue-api": ">=2.4.2",
