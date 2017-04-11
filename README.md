@@ -1,7 +1,9 @@
-generable
+GeneraBLE
 =========
 
 Generative art from ambient BLE advertisement packets.  A work in progress started on #IoTDay 2017 based on our earlier work with [midiot](https://www.npmjs.com/package/midiot) and with Philips Hue.
+
+For instructions on how to prepare a Raspberry Pi to run GeneraBLE, see our [Experience Generative Art tutorial](https://reelyactive.github.io/experience-generative-art.html).
 
 
 Prerequisites
