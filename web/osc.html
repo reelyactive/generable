@@ -7,10 +7,10 @@
     <link rel="stylesheet" href="style/reelyactive.css">
     <script type="text/javascript" src="js/angular.min.js"></script>
     <script type="text/javascript" src="js/ui-bootstrap-tpls.min.js"></script>
-    <script type="text/javascript" src="js/generable.js"></script>
+    <script type="text/javascript" src="js/osc.js"></script>
   </head>
-  <body ng-app="generable">
-    <div>
+  <body ng-app="osc">
+    <div ng-controller="OscCtrl">
       <nav class="navbar navbar-default" role="navigation">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle"
@@ -33,12 +33,31 @@
       </nav>
       <div class="container-fluid">
         <div class="row">
-          <div class="col-md-6 col-md-offset-3">
-            <h1 class="text-center"> GeneraBLE is a work in progress... </h1>
-            <p class="text-center">
-              <a href="hue"> hue </a> | <a href="midi"> midi </a> |
-              <a href="osc"> osc </a> | <a href="reel"> reel </a>
-            </p>
+          <div class="col-xs-12 col-md-3">
+            <a href="../" class="btn btn-primary"> Back </a>
+            <hr>
+            <table class="table table-hover">
+              <caption> OSC INTERFACES </caption>
+              <thead>
+                <tr>
+                  <th> &nbsp; </th>
+                  <th> Address </th>
+                  <th> Port </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th> Local </th>
+                  <td> {{osc.interfaces.localInterface.localAddress}} </td>
+                  <td> {{osc.interfaces.localInterface.localPort}} </td>
+                </tr>
+                <tr>
+                  <th> Target </th>
+                  <td> {{osc.interfaces.targetInterface.targetAddress}} </td>
+                  <td> {{osc.interfaces.targetInterface.targetPort}} </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
