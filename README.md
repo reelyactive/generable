@@ -6,8 +6,20 @@ Generative art from ambient BLE advertisement packets.  A work in progress start
 For instructions on how to prepare a Raspberry Pi to run GeneraBLE, see our [Experience Generative Art tutorial](https://reelyactive.github.io/experience-generative-art.html).
 
 
-Prerequisites
+System Overview
+---------------
+
+![System Overview Graphic](https://reelyactive.github.io/generable/images/system-overview.png)
+
+
+OSC Interface
 -------------
+
+![OSC Message Graphic](https://reelyactive.github.io/generable/images/osc-messages.png)
+
+
+MIDI Interface
+--------------
 
 The [midi package prerequisites](https://www.npmjs.com/package/midi#prerequisites) must be met before installation.
 
@@ -16,6 +28,8 @@ The [midi package prerequisites](https://www.npmjs.com/package/midi#prerequisite
 ALSA is likely to be the only missing prerequisite, and can be installed as follows:
 
     sudo apt-get install libasound2-dev
+
+![MIDI Message Graphic](https://reelyactive.github.io/generable/images/midi-messages.png)
 
 
 Installation
@@ -41,6 +55,14 @@ From the command line, in the folder which contains your project, run the follow
     node generable.js
 
 Point your favourite web browser to [localhost:3000](http://localhost:3000).
+
+
+Configuration
+-------------
+
+The intent of the GeneraBLE project is for all configuration to be completed through human-friendly web interfaces.  The configuration interfaces are still a work in progress, however.
+
+To reset the configuration to default, simply delete the data/generable.db file and restart the program.
 
 
 License
