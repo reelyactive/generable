@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style/reelyactive.css">
     <script type="text/javascript" src="js/angular.min.js"></script>
     <script type="text/javascript" src="js/ui-bootstrap-tpls.min.js"></script>
+    <script type="text/javascript" src="js/socket.io.slim.js"></script>
     <script type="text/javascript" src="js/reel.js"></script>
   </head>
   <body ng-app="reel">
@@ -60,6 +61,25 @@
               </tbody>
             </table>
             <p> Currently hard-coded to expect a serial reel interface (USB). </p>
+          </div>
+          <div class="col-xs-12 col-md-9">
+            <table class="table table-hover">
+              <caption> REAL-TIME EVENT STREAM </caption>
+              <thead>
+                <tr>
+                  <th> Transmitter ID </th>
+                  <th> RSSI </th>
+                  <th> Strongest Receiver ID </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="(id, event) in events">
+                  <td> <tt> {{event.deviceId}} </tt> </td>
+                  <td> <tt> {{event.rssi}} </tt> </td>
+                  <td> <tt> {{event.receiverId}} </tt> </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
