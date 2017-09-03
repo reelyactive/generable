@@ -43,7 +43,6 @@ angular.module('reel', [ 'ui.bootstrap' ])
         if($scope.events.length > REEL_EVENTS_HISTORY) {
           $scope.events.shift();
         }
-        console.log(message.data);
       }
       $scope.$apply();
     }

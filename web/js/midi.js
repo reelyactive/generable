@@ -53,7 +53,6 @@ angular.module('midi', [ 'ui.bootstrap' ])
         if($scope.events.length > MIDI_EVENTS_HISTORY) {
           $scope.events.shift();
         }
-        console.log(message.data);
       }
       $scope.$apply();
     }
