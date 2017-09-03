@@ -21,6 +21,27 @@ angular.module('reel', [ 'ui.bootstrap' ])
     $scope.reel = {};
     $scope.events = [];
 
+    $scope.getInterfaces = function() {
+      $http.defaults.headers.common.Accept = 'application/json';
+      $http({ method: 'GET', url: '/reel/interfaces' })
+        .then(function(response) {
+          $scope.reel.interfaces = response.data;
+        }, function(response) {
+          $scope.reel.interfaces = {};
+      });
+    };
+
+    $scope.selectInterface = function(protocol, path) {
+      var data = { protocol: protocol, path: path };
+      $http.defaults.headers.common.Accept = 'application/json';
+      $http({ method: 'PUT', url: '/reel/interfaces', data: data })
+        .then(function(response) {
+          $scope.reel.interfaces = response.data;
+        }, function(response) {
+          $scope.reel.interfaces = {};
+      });
+    };
+
     $scope.getState = function() {
       $http.defaults.headers.common.Accept = 'application/json';
       $http({ method: 'GET', url: '/reel' })
@@ -47,6 +68,7 @@ angular.module('reel', [ 'ui.bootstrap' ])
       $scope.$apply();
     }
 
-    $scope.getState();
+    $scope.getInterfaces();
+    //$scope.getState();
 
   });

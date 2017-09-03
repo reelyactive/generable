@@ -42,25 +42,31 @@
               <thead>
                 <tr>
                   <th> Protocol </th>
+                  <th> Path </th>
                   <th> Action </th>
                 </tr>
               </thead>
               <tbody>
                 <tr ng-repeat="interface in reel.interfaces">
                   <td> {{interface.protocol}} </td>
-                  <td> {{interface.selected}} </td>
+                  <td> {{interface.path}} </td>
                   <td>
                     <a class="btn btn-default btn-xs"
-                       ng-click="selectInterface(interface.protocol)"
+                       ng-click="selectInterface(interface.protocol,
+                                                 interface.path)"
                        ng-hide="interface.selected"> Select </a>
-                    <a class="btn btn-default btn-xs"
-                       ng-click="removeInterface(interface.protocol)"
-                       ng-show="interface.selected"> Remove </a>
+                    <span ng-show="interface.selected"> Selected </span>
                   </td>
                 </tr>
               </tbody>
             </table>
-            <p> Currently hard-coded to expect a serial reel interface (USB). </p>
+            <p> Note that:
+              <ul>
+                <li> <i>hci</i> normally requires running as super-user
+                <li> <i>serial auto</i> requires a reelyActive minimal starter kit
+                <li> <i>serial /dev/serial0</i> requires a reelyActive Pi Hat
+              </ul>
+            </p>
           </div>
           <div class="col-xs-12 col-md-9">
             <table class="table table-hover">
