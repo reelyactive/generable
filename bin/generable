@@ -4,5 +4,6 @@ var path = require('path');
 var fs = require('fs');
 var lib = path.join(path.dirname(fs.realpathSync(__filename)), '../lib');
 
-require(lib + '/server.js');
+var generable = require(lib + '/server.js');
+var app = new generable( { httpPort: 3000 } );
 
