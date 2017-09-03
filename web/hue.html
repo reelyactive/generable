@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style/reelyactive.css">
     <script type="text/javascript" src="js/angular.min.js"></script>
     <script type="text/javascript" src="js/ui-bootstrap-tpls.min.js"></script>
+    <script type="text/javascript" src="js/socket.io.slim.js"></script>
     <script type="text/javascript" src="js/hue.js"></script>
   </head>
   <body ng-app="hue">
@@ -93,7 +94,25 @@
             </div>
           </div>
           <div class="col-xs-12 col-md-9">
-            More coming soon...
+            <table class="table table-hover">
+              <caption> REAL-TIME EVENT STREAM </caption>
+              <thead>
+                <tr>
+                  <th> Light ID </th>
+                  <th> Hue </th>
+                  <th> Brightness </th>
+                  <th> Saturation </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="(id, event) in events">
+                  <td> <tt> {{event.id}} </tt> </td>
+                  <td> <tt> {{event.state.hue}} </tt> </td>
+                  <td> <tt> {{event.state.bri}} </tt> </td>
+                  <td> <tt> {{event.state.sat}} </tt> </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>

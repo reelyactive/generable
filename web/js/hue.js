@@ -1,10 +1,26 @@
+/**
+ * Copyright reelyActive 2017
+ * We believe in an open Internet of Things
+ */
+
+
+const HUE_EVENTS_HISTORY = 5;
+
+
+/**
+ * hue Module
+ */
 angular.module('hue', [ 'ui.bootstrap' ])
 
   // Hue controller
-  .controller('HueCtrl', function($scope, $http, $interval) {
+  .controller('HueCtrl', function($scope, $http, $location) {
+    var socket = connectSocket();
+    socket.on('hue', handleMessage);
 
+    // Variables accessible in the HTML scope
     $scope.hue = {};
     $scope.fetchingBridges = true;
+    $scope.events = [];
 
     $scope.getBridges = function() {
       $scope.fetchingBridges = true;
@@ -38,6 +54,22 @@ angular.module('hue', [ 'ui.bootstrap' ])
           $scope.hue.lights = {};
       });
     };
+
+    function connectSocket() {
+      var url = $location.protocol() + '://' + $location.host() + ':' +
+                $location.port();
+      return io.connect(url);
+    }
+
+    function handleMessage(message) {
+      if(message.type === 'state') {
+        $scope.events.push(message.data);
+        if($scope.events.length > HUE_EVENTS_HISTORY) {
+          $scope.events.shift();
+        }
+      }
+      $scope.$apply();
+    }
 
     $scope.getBridges();
 
