@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style/reelyactive.css">
     <script type="text/javascript" src="js/angular.min.js"></script>
     <script type="text/javascript" src="js/ui-bootstrap-tpls.min.js"></script>
+    <script type="text/javascript" src="js/socket.io.slim.js"></script>
     <script type="text/javascript" src="js/osc.js"></script>
   </head>
   <body ng-app="osc">
@@ -55,6 +56,31 @@
                   <th> Target </th>
                   <td> {{osc.interfaces.targetInterface.targetAddress}} </td>
                   <td> {{osc.interfaces.targetInterface.targetPort}} </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-xs-12 col-md-9">
+            <table class="table table-hover">
+              <caption> REAL-TIME EVENT STREAM </caption>
+              <thead>
+                <tr>
+                  <th> Address </th>
+                  <th> Args[0] </th>
+                  <th> Args[1] </th>
+                  <th> Args[2] </th>
+                  <th> Args[3] </th>
+                  <th> Args[4] </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="(id, event) in events">
+                  <td> <tt> {{event.address}} </tt> </td>
+                  <td> <tt> {{event.args[0]}} </tt> </td>
+                  <td> <tt> {{event.args[1]}} </tt> </td>
+                  <td> <tt> {{event.args[2]}} </tt> </td>
+                  <td> <tt> {{event.args[3]}} </tt> </td>
+                  <td> <tt> {{event.args[4]}} </tt> </td>
                 </tr>
               </tbody>
             </table>
