@@ -12,6 +12,20 @@ System Overview
 ![System Overview Graphic](https://reelyactive.github.io/generable/images/system-overview.png)
 
 
+Web Interface
+-------------
+
+The web interface provides dynamic audiovisual scenes that run in-browser.  Scenes provide generative, ambient content for HD displays, for example Square Shades:
+
+![SquareShades](https://reelyactive.github.io/images/generable-scene-squareshades.png)
+
+
+Hue Interface
+-------------
+
+GeneraBLE can discover Philips Hue bridges over the local network and drive their connected lights with real-time generative content.
+
+
 OSC Interface
 -------------
 
@@ -54,13 +68,13 @@ From the command line, in the folder which contains your project, run the follow
 
     node generable.js
 
-Point your favourite web browser to [localhost:3000](http://localhost:3000).
+Point your favourite web browser to [localhost:3000](http://localhost:3000) and begin configuration.
 
 
 Configuration
 -------------
 
-The intent of the GeneraBLE project is for all configuration to be completed through human-friendly web interfaces.  The configuration interfaces are still a work in progress, however.
+The intent of the GeneraBLE project is for all configuration to be completed through human-friendly web interfaces.  The web interfaces currently supported include: Reel (BLE), Hue, MIDI and OSC.
 
 To reset the configuration to default, simply delete the data/generable.db file and restart the program.
 
