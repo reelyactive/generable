@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title> SquareShades scene for GeneraBLE by reelyActive </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style/squareshades.css">
+    <script type="text/javascript" src="../../js/angular.min.js"></script>
+    <script type="text/javascript" src="../../js/socket.io.slim.js"></script>
+    <script type="text/javascript" src="js/squareshades.js"></script>
+  </head>
+  <body ng-app="squareshades">
+    <div ng-controller="SceneCtrl" class="scene" ng-style="sceneStyle">
+      <div ng-repeat="device in devices | orderBy: 'this.event.deviceId'"
+           ng-style="device.style" class="square">
+        <tt> {{device.event.deviceId}} </td>
+      </div>
+    </div>
+  </body>
+</html>

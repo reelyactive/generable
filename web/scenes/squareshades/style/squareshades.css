@@ -1,0 +1,21 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: #000;
+}
+
+.scene {
+  overflow: hidden;
+  background-color: #000;
+}
+
+.square {
+  float: left;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  text-align: center;
+}
