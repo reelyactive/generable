@@ -31,17 +31,33 @@
           </ul>
         </div>
       </nav>
-      <div class="container-fluid">
+      <div ng-controller="DisplayCtrl" class="container-fluid">
         <div class="row">
-          <div class="col-md-6 col-md-offset-3">
-            <h1 class="text-center"> GeneraBLE <br>
+          <div class="col-md-6 col-md-offset-3 text-center">
+            <h1> GeneraBLE <br>
               <small> Configure the peripherals below </small> </h1>
-            <p class="text-center">
+            <p>
               <a href="reel" class="btn btn-default"> reel </a> &nbsp;
               <a href="hue" class="btn btn-default"> hue </a> &nbsp;
               <a href="midi" class="btn btn-default"> midi </a> &nbsp;
               <a href="osc" class="btn btn-default"> osc </a>
             </p>
+            <h1> <small> Activate a scene </small> </h1>
+            <div class="btn-group" uib-dropdown>
+              <button id="split-button" class="btn btn-primary"
+                      type="button"> {{selectedScene}} </button>
+              <button type="button" class="btn btn-primary" uib-dropdown-toggle>
+                <span class="caret"></span>
+                <span class="sr-only">Scene Selection</span>
+              </button>
+              <ul class="dropdown-menu" uib-dropdown-menu role="menu"
+                  aria-labelledby="split-button">
+                <li ng-repeat="scene in scenes" role="menuitem">
+                  <a ng-click="selectedScene = scene.name" target="_blank"
+                     ng-href="{{scene.url}}"> {{scene.name}} </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
