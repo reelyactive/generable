@@ -46,6 +46,12 @@ ALSA is likely to be the only missing prerequisite, and can be installed as foll
 ![MIDI Message Graphic](https://reelyactive.github.io/generable/images/midi-messages.png)
 
 
+ZynAddSubFX Interface
+---------------------
+
+If ZynAddSubFX is installed (see our [Experience Generative Art tutorial](https://reelyactive.github.io/experience-generative-art.html)), the _zyn_ interface provides a convenient way to change instruments.
+
+
 Installation
 ------------
 
