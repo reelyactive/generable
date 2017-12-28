@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title> GeneraBLE by reelyActive </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style/bootstrap.min.css">
+    <link rel="stylesheet" href="style/reelyactive.css">
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/ui-bootstrap-tpls.min.js"></script>
+    <script type="text/javascript" src="js/socket.io.slim.js"></script>
+    <script type="text/javascript" src="js/zyn.js"></script>
+  </head>
+  <body ng-app="zyn">
+    <div ng-controller="ZynCtrl">
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle"
+                  ng-init="navCollapsed = true"
+                  ng-click="navCollapsed = !navCollapsed">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="http://www.reelyactive.com">
+            <strong>reely</strong>Active
+          </a>
+        </div>
+        <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'"
+             ng-click="navCollapsed = true">
+          <ul class="nav navbar-nav navbar-right">
+          </ul>
+        </div>
+      </nav>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12 col-md-3">
+            <a href="../" class="btn btn-primary"> Back </a>
+            <hr>
+            <table class="table table-hover">
+              <caption> ZYN INTERFACES </caption>
+              <thead>
+                <tr>
+                  <th> &nbsp; </th>
+                  <th> Address </th>
+                  <th> Port </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th> Local </th>
+                  <td> {{zyn.interfaces.localInterface.localAddress}} </td>
+                  <td> {{zyn.interfaces.localInterface.localPort}} </td>
+                </tr>
+                <tr>
+                  <th> Target </th>
+                  <td> {{zyn.interfaces.targetInterface.targetAddress}} </td>
+                  <td> {{zyn.interfaces.targetInterface.targetPort}} </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-xs-12 col-md-9">
+            <table class="table table-hover">
+              <caption> INSTRUMENTS </caption>
+              <thead>
+                <tr>
+                  <th> Channel </th>
+                  <th> Instrument </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td> <tt> 0 </tt> </td>
+                  <td>
+                    <select name="instrument" id="instrument"
+                            ng-model="zyn.instrument"
+                            ng-change="updateInstrument(0, zyn.instrument)">
+                      <option ng-repeat="instrument in zyn.instruments"
+                              value="{{instrument}}">{{instrument}}</option>
+                    </select>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <footer class="footer">
+        <a href="https://github.com/reelyactive/generable"> GeneraBLE </a>
+        &nbsp; | &nbsp;
+        <a href="http://www.reelyactive.com"
+           uib-tooltip="We believe in an open Internet of Things"
+           tooltip-placement="right">
+          &copy; reelyActive 2017
+        </a>
+      </footer>
+    </div>
+  </body>
+</html>
