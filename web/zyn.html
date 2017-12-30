@@ -62,22 +62,31 @@
           </div>
           <div class="col-xs-12 col-md-9">
             <table class="table table-hover">
-              <caption> INSTRUMENTS </caption>
+              <caption> PATCHES </caption>
               <thead>
                 <tr>
                   <th> Channel </th>
+                  <th> Bank </th>
                   <th> Instrument </th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td> <tt> 0 </tt> </td>
+                <tr ng-repeat="(channel,patch) in zyn.patches">
+                  <td> <tt> {{channel}} </tt> </td>
+                  <td>
+                    <select name="bank" id="bank"
+                            ng-model="zyn.patches[channel].bank"
+                            ng-change="updatePatch(channel, zyn.patches[channel])">
+                      <option ng-repeat="(id,bank) in zyn.banks"
+                              ng-value="{{id}}">{{bank}}</option>
+                    </select>
+                  </td>
                   <td>
                     <select name="instrument" id="instrument"
-                            ng-model="zyn.instrument"
-                            ng-change="updateInstrument(0, zyn.instrument)">
-                      <option ng-repeat="instrument in zyn.instruments"
-                              value="{{instrument}}">{{instrument}}</option>
+                            ng-model="zyn.patches[channel].instrument"
+                            ng-change="updatePatch(channel, zyn.patches[channel])">
+                      <option ng-repeat="(id,instrument) in zyn.instruments[zyn.patches[channel].bank]"
+                              ng-value="{{id}}">{{instrument}}</option>
                     </select>
                   </td>
                 </tr>
