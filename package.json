@@ -37,7 +37,7 @@
     "barnowl": ">=0.4.28",
     "serialport": ">=6.0.0",
     "bluetooth-hci-socket": ">=0.5.1",
-    "barnacles": ">=0.4.8",
+    "barnacles": ">=0.4.12",
     "reelib": ">=0.0.15",
     "node-hue-api": ">=2.4.2",
     "midi": ">=0.9.5",

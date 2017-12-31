@@ -73,6 +73,7 @@
               <caption> REAL-TIME EVENT STREAM </caption>
               <thead>
                 <tr>
+                  <th> Event </th>
                   <th> Transmitter ID </th>
                   <th> RSSI </th>
                   <th> Strongest Receiver ID </th>
@@ -80,8 +81,9 @@
               </thead>
               <tbody>
                 <tr ng-repeat="(id, event) in events">
+                  <td> <tt> {{event.event}} </tt> </td>
                   <td> <tt> {{event.deviceId}} </tt> </td>
-                  <td> <tt> {{event.rssi}} </tt> </td>
+                  <td> <tt> {{event.rssiMap || event.rssi}} </tt> </td>
                   <td> <tt> {{event.receiverId}} </tt> </td>
                 </tr>
               </tbody>
