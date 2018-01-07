@@ -12,7 +12,7 @@
     "OSC",
     "Philips Hue"
   ],
-  "version": "0.1.12",
+  "version": "0.1.13",
   "engines": {
     "node": ">=4.0.0"
   },
