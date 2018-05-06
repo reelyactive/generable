@@ -1,5 +1,5 @@
 /**
- * Copyright reelyActive 2017
+ * Copyright reelyActive 2017-2018
  * We believe in an open Internet of Things
  */
 
@@ -48,7 +48,7 @@ angular.module('squareshades', [])
       if(message.type === 'visibility') {
         var event = message.data;
         var isNewDevice = true;
-        updateRssiStats(event.maxRssi);
+        updateRssiStats(event.rssi);
         for(var cDevice = 0; cDevice < $scope.devices.length; cDevice++) {
           if($scope.devices[cDevice].event.deviceId === event.deviceId) {
             $scope.devices.splice(cDevice, 1);
@@ -69,7 +69,7 @@ angular.module('squareshades', [])
       var style = { width: squareEdgePixels + 'px',
                     height: squareEdgePixels + 'px' };
       var rgb = isNew ? APPEARANCE_COLOUR_RGB : MASTER_COLOUR_RGB;
-      var brightness = (event.maxRssi - minRssi) / (maxRssi - minRssi + 1);
+      var brightness = (event.rssi - minRssi) / (maxRssi - minRssi + 1);
       brightness = Math.max(0, Math.min(1, brightness));
       var r = ('0' + Math.round(brightness * rgb[0]).toString(16)).substr(-2);
       var g = ('0' + Math.round(brightness * rgb[1]).toString(16)).substr(-2);
@@ -198,7 +198,7 @@ angular.module('squareshades', [])
     }
 
     function playSynth(event) {
-      var velocity = (event.maxRssi - minRssi) / (maxRssi - minRssi + 1);
+      var velocity = (event.rssi - minRssi) / (maxRssi - minRssi + 1);
       velocity = Math.max(0.33, Math.min(0.8, velocity));
       var scaleIndex = Math.round(squareEdgePixels / MIN_SQUARE_EDGE_PX) - 1;
       scaleIndex = Math.max(0, Math.min(SCALES.length - 1, scaleIndex));
