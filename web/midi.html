@@ -78,6 +78,47 @@
                 </tr>
               </tbody>
             </table>
+
+            <table class="table table-hover" ng-if="midi.assignments.length">
+              <caption> ASSIGNMENTS </caption>
+              <thead>
+                <tr>
+                  <th> Channel </th>
+                  <th> Source </th>
+                  <th> Note(s) </th>
+                  <th> Duration </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="(channel,assignment) in midi.assignments">
+                  <td> <tt> {{channel}} </tt> </td>
+                  <td>
+                    <select name="source" id="source"
+                            ng-model="midi.assignments[channel].source"
+                            ng-change="updateAssignment(channel, midi.assignments[channel])">
+                      <option ng-repeat="source in midi.sources"
+                              value="{{source}}">{{source}}</option>
+                    </select>
+                  </td>
+                  <td>
+                    <select name="notes" id="notes"
+                            ng-model="midi.assignments[channel].notes"
+                            ng-change="updateAssignment(channel, midi.assignments[channel])">
+                      <option ng-repeat="notes in midi.notes"
+                              value="{{notes}}">{{notes}}</option>
+                    </select>
+                  </td>
+                  <td>
+                    <select name="duration" id="duration"
+                            ng-model="midi.assignments[channel].duration"
+                            ng-change="updateAssignment(channel, midi.assignments[channel])">
+                      <option ng-repeat="duration in midi.durations"
+                              value="{{duration}}">{{duration}}</option>
+                    </select>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
