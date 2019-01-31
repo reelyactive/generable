@@ -12,7 +12,7 @@
     "OSC",
     "Philips Hue"
   ],
-  "version": "0.1.16",
+  "version": "0.1.17",
   "engines": {
     "node": ">=4.0.0"
   },
@@ -34,11 +34,11 @@
     "body-parser": ">=1.17.0",
     "cors": ">=2.8.3",
     "path": ">=0.12.7",
-    "barnowl": ">=0.4.28",
+    "barnowl": "^0.4.28",
     "serialport": ">=6.0.0",
     "bluetooth-hci-socket": ">=0.5.1",
-    "barnacles": ">=0.4.12",
-    "reelib": ">=0.0.15",
+    "barnacles": "^0.4.12",
+    "reelib": "^0.0.18",
     "node-hue-api": ">=2.4.2",
     "midi": ">=0.9.5",
     "osc": ">=2.2.0"
