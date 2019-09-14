@@ -1,0 +1,7 @@
+#!/usr/bin/env node
+
+const GeneraBLE = require('../lib/generable.js');
+
+const options = { };
+
+let app = new GeneraBLE(options);

@@ -1,0 +1,47 @@
+{
+  "name": "generable",
+  "homepage": "https://github.com/reelyactive/generable/",
+  "author": {
+    "name": "reelyActive",
+    "email": "info@reelyactive.com"
+  },
+  "description": "Generative art from ambient wireless packet traffic.  We believe in an open Internet of Things.",
+  "keywords": [
+    "reelyActive",
+    "generative art",
+    "IoT",
+    "BLE",
+    "MIDI",
+    "OSC"
+  ],
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "main": "./lib/generable.js",
+  "scripts": {
+    "start": "node bin/generable"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/reelyactive/generable.git"
+  },
+  "dependencies": {
+    "barnowl": "^1.0.0",
+    "barnowl-reel": "^0.1.10",
+    "body-parser": "^1.18.0",
+    "express": "^4.0.0",
+    "raddec": "^0.2.3",
+    "socket.io": ">=2.2.0"
+  },
+  "devDependencies": {},
+  "bugs": {
+    "url": "https://github.com/reelyactive/generable/issues"
+  },
+  "contributors": [
+    {
+      "name": "Jeffrey Dungen"
+    }
+  ],
+  "license": "MIT"
+}
